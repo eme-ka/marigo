@@ -307,11 +307,20 @@
     }
 
     .autora-foto {
-      background: linear-gradient(135deg, var(--violeta-suave), var(--verde-suave));
-      border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
+      width: 100%;
+      max-width: 340px;
       aspect-ratio: 1;
+      border-radius: 40px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--violeta-suave), var(--verde-suave));
       display: flex; align-items: center; justify-content: center;
-      font-size: 4rem; opacity: 0.6;
+    }
+
+    .autora-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .autora-texto p {
@@ -494,7 +503,7 @@
         <p class="libro-desc">
           Este libro recorre el reconocimiento de la fertilidad como herramienta de alfabetización corporal:
           desde sus fundamentos científicos hasta su dimensión política y su lugar en el sistema de salud actual.
-          Un texto para quienes quieren entender su cuerpo, su ciclo y su autonomía.
+          Un texto para quienes quieren llevar una práctica que promueva la autonomía.
         </p>
 
         <!-- Índice -->
@@ -559,7 +568,9 @@
 <section class="autora-section">
   <div class="contenedor">
     <div class="autora-grid">
-      <div class="autora-foto fade-in">👩‍⚕️</div>
+      <div class="autora-foto fade-in">
+        <img src="mari2.jpeg" alt="Dra. Marisa Godoy" />
+      </div>
       <div class="autora-texto fade-in">
         <div class="seccion-tag">Sobre la autora</div>
         <h2 class="seccion-titulo">Dra. Marisa <em>Godoy</em></h2>

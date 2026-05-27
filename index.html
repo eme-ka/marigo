@@ -177,34 +177,33 @@
 
     .btn-secundario:hover { background: var(--verde-suave); transform: translateY(-1px); }
 
+    .btn-formacion {
+      background: var(--verde);
+      color: var(--blanco);
+      border-color: var(--verde);
+    }
+
+    .btn-formacion:hover {
+      background: var(--verde-oscuro);
+    }
+
     .hero-imagen {
       position: relative;
       background: linear-gradient(135deg, var(--violeta-suave) 0%, var(--verde-suave) 100%);
       overflow: hidden;
-      display: flex; align-items: flex-end; justify-content: center;
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem 1rem;
     }
 
-    .hero-foto-placeholder {
+    img.hero-foto-placeholder {
       width: 75%;
       aspect-ratio: 3/4;
-      background: linear-gradient(160deg, rgba(91,58,140,0.15) 0%, rgba(74,124,89,0.2) 100%);
-      border-radius: 60% 60% 0 0 / 30% 30% 0 0;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column;
-      color: var(--violeta);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      text-align: center;
-      padding: 2rem;
+      border-radius: 40px;
+      overflow: hidden;
+      object-fit: cover;
+      display: block;
       margin-bottom: 0;
-      position: relative;
     }
-
-    .foto-icono {
-      font-size: 4rem; margin-bottom: 1rem; opacity: 0.4;
-    }
-
-    .foto-texto { opacity: 0.6; font-style: italic; }
 
     .hero-deco {
       position: absolute;
@@ -259,14 +258,20 @@
 
     .sobre-foto {
       position: relative;
+      width: 100%;
+      max-width: 420px;
     }
 
     .sobre-foto-inner {
-      background: linear-gradient(135deg, var(--violeta-suave), var(--verde-suave));
-      border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
+      width: 100%;
+      max-width: 420px;
       aspect-ratio: 1;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 5rem; opacity: 0.5;
+      border-radius: 40px;
+      overflow: hidden;
+      background: none;
+      display: block;
+      object-fit: cover;
+      height: auto;
     }
 
     .credencial {
@@ -374,6 +379,15 @@
 
     .timeline-lugar {
       font-size: 0.88rem; color: var(--texto-suave); line-height: 1.5;
+      word-wrap: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    .timeline-lugar a {
+      color: var(--verde);
+      text-decoration: none;
+      word-wrap: break-word;
+      overflow-wrap: anywhere;
     }
 
     /* ── PACIENTES ── */
@@ -459,6 +473,28 @@
 
     /* ── PROFESIONALES ── */
     #profesionales { background: var(--verde-suave); }
+    .imagen-grilla {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      border-radius: 24px;
+      object-fit: cover;
+      display: block;
+    }
+    .profesionales-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+    .profesionales-grid img { width: 100%; height: auto; }
+    .ebook-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
 
 
 
@@ -671,6 +707,18 @@
         margin-top: 1rem;
         border-bottom: none !important;
       }
+      .profesionales-grid { grid-template-columns: 1fr; }
+      .hero-botones { flex-direction: column; align-items: stretch; }
+      .hero-botones a { width: 100%; justify-content: center; }
+      .hero-foto-placeholder {
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+      }
+      .hero-imagen { min-height: 320px; }
+      .tab-btn { flex: 1 1 auto; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .ebook-cards { grid-template-columns: 1fr; }
     }
 
     /* WhatsApp flotante */
@@ -693,7 +741,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo"><span>Dra. Marisa</span> Alejandra Godoy</div>
+  <div class="nav-logo"><span>Dra. Marisa</span> Godoy</div>
   <ul class="nav-links" id="navLinks">
     <li><a href="#sobre-mi">Sobre mí</a></li>
     <li><a href="#trayectoria">Trayectoria</a></li>
@@ -712,7 +760,7 @@
   <div class="hero-texto">
     <div class="hero-badge">Medicina Familiar · Salud Integrativa · Reconocimiento de la Fertilidad</div>
     <h1 class="hero-titulo">
-      <em>Dra. Marisa</em><br>Alejandra Godoy
+      <em>Dra. Marisa</em><br> Godoy
     </h1>
     <p class="hero-subtitulo">Médica MN 120572 · Universidad de Buenos Aires</p>
     <p class="hero-descripcion">
@@ -723,17 +771,14 @@
     </p>
     <div class="hero-botones">
       <a href="#pacientes" class="btn-primario">📅 Agendá tu consulta</a>
-      <a href="#profesionales" class="btn-secundario">Formación profesional</a>
+      <a href="#profesionales" class="btn-secundario btn-formacion">Formación profesional</a>
       <a href="#sobre-mi" class="btn-secundario">Conocé más</a>
     </div>
   </div>
   <div class="hero-imagen">
     <div class="hero-deco hero-deco-1"></div>
     <div class="hero-deco hero-deco-2"></div>
-    <div class="hero-foto-placeholder">
-      <div class="foto-icono">👩‍⚕️</div>
-      <div class="foto-texto">Foto de<br>Marisa Godoy</div>
-    </div>
+    <img src="mari1.jpeg" alt="Dra. Marisa Godoy" class="hero-foto-placeholder" />
   </div>
 </section>
 
@@ -742,7 +787,7 @@
   <div class="contenedor">
     <div class="sobre-grid">
       <div class="sobre-foto fade-in">
-        <div class="sobre-foto-inner">👩‍⚕️</div>
+        <img src="mari2.jpeg" alt="Dra. Marisa Godoy" class="sobre-foto-inner" />
         <div class="credencial">
           <div class="credencial-titulo">Matrícula nacional</div>
           <div class="credencial-valor">MN 120572</div>
@@ -768,6 +813,7 @@
           <div class="formacion-item">Endocrinología Ginecológica</div>
           <div class="formacion-item">Nutrición Funcional</div>
           <div class="formacion-item">Métodos de Autogestión de la Fertilidad: Método Sintotérmico / Método de la Ovulación</div>
+          <div class="formacion-item">Doula de gestación, parto y puerperio. Consejería en Salud Sexual y (no) Reproductiva y aborto</div>
         </div>
       </div>
     </div>
@@ -781,11 +827,24 @@
     <h2 class="seccion-titulo">Formación y <em>experiencia</em></h2>
 
     <div class="trayectoria-tabs">
-      <button class="tab-btn activo" onclick="cambiarTab(this, 'docente')">Actividad Docente</button>
-      <button class="tab-btn" onclick="cambiarTab(this, 'formacion')">Colaboraciones</button>
+      <button class="tab-btn activo" onclick="cambiarTab(this, 'formacion')">Colaboraciones</button>
+      <button class="tab-btn" onclick="cambiarTab(this, 'docente')">Docencia</button>
     </div>
 
-    <div id="tab-docente" class="tab-contenido activo">
+    <div id="tab-formacion" class="tab-contenido activo">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-cargo">Aliada de Latinoamérica Fértil (LAFER)</div>
+          <div class="timeline-lugar"><a href="https://latinoamericaferti.wixsite.com/lafer" style="color:var(--verde);text-decoration:none;" target="_blank">https://latinoamericaferti.wixsite.com/lafer</a></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-cargo">Aliada de Association of Fertility Awareness Professionals (AFAP)</div>
+          <div class="timeline-lugar"><a href="https://www.fertilityawarenessprofessionals.org/spanish/" style="color:var(--verde);text-decoration:none;" target="_blank">https://www.fertilityawarenessprofessionals.org/spanish/</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-docente" class="tab-contenido">
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-cargo">Docente en formación de posgrados en Salud Sexual y Reproductiva</div>
@@ -799,21 +858,6 @@
           <div class="timeline-cargo">Coordinadora de Residencias Médicas</div>
           <div class="timeline-lugar">Especialidad Medicina Familiar</div>
         </div>
-      </div>
-    </div>
-
-    <div id="tab-formacion" class="tab-contenido">
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-cargo">Aliada de Latinoamérica Fértil (LAFER)</div>
-          <div class="timeline-lugar"><a href="#" style="color:var(--verde);text-decoration:none;">— agregar link —</a></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-cargo">Aliada de Association of Fertility Awareness Professionals (AFAP)</div>
-          <div class="timeline-lugar"><a href="#" style="color:var(--verde);text-decoration:none;">— agregar link —</a></div>
-        </div>
-      </div>
-    </div>
       </div>
     </div>
   </div>
@@ -839,7 +883,7 @@
       <div class="consulta-card fade-in">
         <div class="card-icono">🌿</div>
         <div class="card-titulo">Salud Hormonal</div>
-        <div class="card-desc">Evaluación y acompañamiento de problemas del ciclo menstrual: dolor menstrual, amenorreas, irregularidad menstrual, sangrado uterino anormal. Interpretación de gráficas de biomarcadores. Valoración mediante monitores hormonales: <a href="https://shop.miracare.com/pages/how-mira-works" target="_blank" style="color:rgba(255,255,255,0.9);text-decoration:underline;">MIRA Fertility©</a>. Escribime para obtener tu código de descuento.</div>
+        <div class="card-desc">Evaluación y acompañamiento de problemas del ciclo menstrual: dolor menstrual, amenorreas, irregularidad menstrual, sangrado uterino anormal. Interpretación de gráficas de biomarcadores. Valoración mediante monitores hormonales: <a href="https://shop.miracare.com/pages/how-mira-works" target="_blank" style="color:rgba(255,255,255,0.9);text-decoration:underline;">MIRA Fertility©</a> (escribime para obtener tu código de descuento) y <a href="https://dutchtest.com/dutch-cycle-mapping" target="_blank" style="color:rgba(255,255,255,0.9);text-decoration:underline;">DUTCH©</a></div>
         <div class="card-precio">Consultar precio <span>/ sesión</span></div>
       </div>
       <div class="consulta-card fade-in">
@@ -868,7 +912,7 @@
     <div class="seccion-tag">Para profesionales</div>
     <h2 class="seccion-titulo">Capacitación para <em>profesionales de la salud</em></h2>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:2rem;">
+    <div class="profesionales-grid">
 
       <!-- Texto principal -->
       <div class="fade-in">
@@ -889,41 +933,44 @@
         </div>
       </div>
 
-      <!-- Card Próximamente -->
       <div class="fade-in">
-        <div style="background:linear-gradient(135deg,var(--violeta-suave),var(--verde-suave));border-radius:20px;padding:2.5rem;border:1px solid rgba(91,58,140,0.12);">
-          <div style="display:inline-block;background:var(--violeta);color:white;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:0.35rem 1rem;border-radius:100px;margin-bottom:1.5rem;">Próximamente</div>
-          <div style="display:flex;flex-direction:column;gap:1rem;">
-            <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:white;border-radius:12px;border-left:3px solid var(--violeta);">
-              <span style="font-size:1.4rem;">🎓</span>
-              <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--violeta-oscuro);">Cursos</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:white;border-radius:12px;border-left:3px solid var(--violeta);">
-              <span style="font-size:1.4rem;">🛠️</span>
-              <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--violeta-oscuro);">Workshops</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:white;border-radius:12px;border-left:3px solid var(--verde);">
-              <span style="font-size:1.4rem;">🤝</span>
-              <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--violeta-oscuro);">Mentorías</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:white;border-radius:12px;border-left:3px solid var(--verde);">
-              <span style="font-size:1.4rem;">💻</span>
-              <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--violeta-oscuro);">Webinars</span>
-            </div>
-          </div>
-        </div>
+        <img src="grilla.jpeg" alt="Grilla de capacitación" class="imagen-grilla" />
       </div>
 
     </div>
 
+    <div class="fade-in" style="margin-top:2rem;">
+      <div style="background:linear-gradient(135deg,var(--violeta-suave),var(--verde-suave));border-radius:20px;padding:2.5rem;border:1px solid rgba(91,58,140,0.12);">
+        <div style="display:inline-block;background:var(--violeta);color:white;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:0.35rem 1rem;border-radius:100px;margin-bottom:1.5rem;">Próximamente</div>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:white;border-radius:12px;border-left:3px solid var(--violeta);">
+            <span style="font-size:1.4rem;">🎓</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--violeta-oscuro);">Cursos</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:white;border-radius:12px;border-left:3px solid var(--violeta);">
+            <span style="font-size:1.4rem;">🛠️</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--violeta-oscuro);">Workshops</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:white;border-radius:12px;border-left:3px solid var(--verde);">
+            <span style="font-size:1.4rem;">🤝</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--violeta-oscuro);">Mentorías</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:white;border-radius:12px;border-left:3px solid var(--verde);">
+            <span style="font-size:1.4rem;">💻</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--violeta-oscuro);">Webinars</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Newsletter + Ebook -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;">
+    <div class="ebook-cards">
 
       <div style="background:var(--blanco);border-radius:20px;padding:2.5rem;border:1px solid rgba(91,58,140,0.12);" class="fade-in">
         <div style="font-size:2.2rem;margin-bottom:1rem;">✉️</div>
         <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--violeta-oscuro);margin-bottom:0.6rem;">Newsletter en Substack</div>
         <p style="font-size:0.9rem;line-height:1.75;color:var(--texto-suave);margin-bottom:1.5rem;">
-          Comparto artículos científicos, revisiones y actualizaciones clínicas; así como reflexiones sobre salud del ciclo menstrual ovulatorio, gestión de la fertilidad y justicia reproductiva. Publicado en Substack, gratis.
+          Comparto artículos científicos, revisiones y actualizaciones clínicas; así como reflexiones sobre salud del ciclo menstrual ovulatorio, la gestión de la fertilidad y la justicia reproductiva. Publicado en Substack, gratis.
         </p>
         <a href="https://substack.com/@marisagodoy?utm_source=share&utm_medium=android&r=26qazr" target="_blank" class="btn-primario" style="text-decoration:none;">✉️ Suscribirse →</a>
       </div>
@@ -976,7 +1023,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Dra. Marisa Alejandra Godoy · Todos los derechos reservados</span>
+      <span>© 2026 Dra. Marisa Godoy · Todos los derechos reservados</span>
       <span style="color:rgba(255,255,255,0.3)">Buenos Aires, Argentina</span>
     </div>
   </div>

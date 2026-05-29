@@ -1045,7 +1045,7 @@
     <div id="ebookSuccess" style="display:none;text-align:center;padding:1rem 0;">
       <div style="font-size:2.5rem;margin-bottom:0.8rem;">🎉</div>
       <h3 style="font-size:1.5rem;margin-bottom:0.5rem;">¡Listo!</h3>
-      <p>Revisá tu casilla de email. Te enviamos el ebook ahora.</p>
+      <p>Redirigiendo...</p>
     </div>
   </div>
 </div>
@@ -1092,16 +1092,16 @@
     if (!nombre || !email) { alert('Por favor completá tu nombre y email.'); return; }
 
     // ── INTEGRACIÓN GOOGLE FORMS ──
-    // Reemplazá esta URL con la de tu Google Form (modo "no-cors")
-    // y actualizá los entry.XXXXXXX con los IDs de los campos de tu form.
-    // Para encontrarlos: inspeccioná el form publicado y buscá los name="entry.XXXXX"
     const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSei2Fpwox0k_tNMDf-uBBzhEy9MH6DZ4iVpJnwWvEJuAwM8Lw/formResponse';
     const formData = new FormData();
     formData.append('entry.2065036180', nombre);
     formData.append('entry.1137863141', email);
 
     fetch(GOOGLE_FORM_URL, { method: 'POST', body: formData, mode: 'no-cors' })
-      .catch(() => {}); // no-cors no devuelve respuesta, eso es normal
+      .catch(() => {});
+
+    window.location.href = 'https://marisagodoy.com.ar/ebook';
+
 
     // Mostrar confirmación
     document.getElementById('ebookForm').style.display = 'none';
